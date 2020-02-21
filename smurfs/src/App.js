@@ -24,9 +24,12 @@ function App({
       <h1>SMURF VILLAGE</h1>
       <SmurfForm/>
       <h2>Smurfs:</h2>
+      <div className="smurfs">
+
       {smurfs.map(smurf => (
         <Smurf smurf={smurf}/>
   ))}
+      </div>
       
     </StyledApp>
   );
@@ -48,5 +51,9 @@ export default connect(mapStateToProps, actions)(App);
   border-radius: 4px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   overflow: hidden;
- 
+ .smurfs{
+   display:flex;
+   flex-direction:row;
+   flex-wrap:wrap-reverse;
+ }
   `
