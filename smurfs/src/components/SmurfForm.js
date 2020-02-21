@@ -2,8 +2,21 @@ import React from "react";
 // import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as actions from "../state/actions";
-export function SmurfForm({formValues,  changeInput, onSubmit, onChange}) {
-
+export function SmurfForm({formValues, postSmurf,  changeInput}) {
+ const onChange = event => {
+    changeInput({
+      inputName: event.target.name,
+      inputValue: event.target.value
+    });
+  };
+  const onSubmit = event => {
+    event.preventDefault();
+    postSmurf({
+      name: formValues.name,
+      age: formValues.age,
+      height: formValues.height
+    });
+  };
     return (
       <div>
 
