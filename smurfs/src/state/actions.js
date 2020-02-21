@@ -16,7 +16,8 @@ import {
 export function changeInput({ inputName, inputValue }) {
   return {
     type: INPUT_CHANGE,
-    payload: { inputName, inputValue }
+    payload: { inputName, inputValue },
+
   }
 }
 
@@ -51,6 +52,12 @@ export const postSmurf = ({name, age, height}) => dispatch => {
         dispatch({
           type: NEW_SMURF,
           payload: smurf.data
+        })
+     
+      ).then(smurf =>
+        dispatch({
+          type: RESET_INPUTS,
+     
         })
      
       )
